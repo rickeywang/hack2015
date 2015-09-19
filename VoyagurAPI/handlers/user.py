@@ -27,7 +27,7 @@ class UserHandler(webapp2.RequestHandler):
         trips = {}
         trip_qry = Trip.query(ancestor=user.key).fetch()
         for trip in trip_qry:
-            trips[trip.name] = trip.key.id()
+            trips[trip.name] = trip.key.urlsafe()
         self.response.status_int = 200
         self.response.headers['Access-Control-Allow-Origin'] = "https://www.myvoyagur.co"
         self.response.write({'user': user.format(), 'trips' : trips})

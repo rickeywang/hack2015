@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 from google.appengine.ext import ndb
+import time
 
 class User(ndb.Model):
     email = ndb.StringProperty(indexed=True)            # Email of the user
@@ -9,5 +10,5 @@ class User(ndb.Model):
     def format(self):
         return {
             'id' : self.key.urlsafe(),
-            'created' : self.created
+            'created' : time.mktime(self.created.timetuple())
         }

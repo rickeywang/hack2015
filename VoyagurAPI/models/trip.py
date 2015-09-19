@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 from google.appengine.ext import ndb
+import time
 
 class Trip(ndb.Model):
     start_date = ndb.DateTimeProperty(auto_now_add=True)  # Can be manually entered by the user when the Trip is being created
@@ -12,9 +13,9 @@ class Trip(ndb.Model):
     def format(self):
         return {
             'id' : self.key.urlsafe(),
-            'start_date' : self.start_date,
+            'start_date' : time.mktime(self.start_date.timetuple()),
             'start_location' : self.start_location,
-            'end_date' : self.end_date,
+            'end_date' : time.mktime(self.end_date.timetuple()),
             'end_location' : self.end_location,
             'name'         : self.name
         }
