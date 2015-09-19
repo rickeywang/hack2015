@@ -8,6 +8,23 @@ from utils import to_json
 from models.user import User
 
 class UserHandler(webapp2.RequestHandler):
+    def get(self, user_id):
+        if user_id is None:
+            self.response.status_int = 400
+            self.response.write({'error': 'Missing user id'})
+            return
+
+        user = User.get_by_id(user_id)
+
+        # Get all the trips associated with the user and add it to the response
+        trips = {}
+        trip_qry = Trip.query(ancestor=user.key).fetch()
+        for trip in trip_qry:
+            trips[trip.name] = trip.key.id()
+        self.response.status_int = 200
+        self.response.write({'user': user.format(), 'trips' : trips})
+        return
+
     """
     POST /user
 
@@ -32,9 +49,9 @@ class UserHandler(webapp2.RequestHandler):
             # Need to check the 'aud' property once we have a user to actually test this stuff with.
             # For now we'll just assume everything worked and return a formatted new user
 
-            qry = User.query(User.email==content.get('email')).get()
+            user = User.query(User.email==content.get('email')).get()
 
-            if qry is None:
+            if user is None:
                 # Need to create a new user
                 user = User()
                 user.email = content.get('email')
@@ -42,8 +59,7 @@ class UserHandler(webapp2.RequestHandler):
                 self.response.status_int = 200
                 self.response.write(user.format())
             else:
-                # Get all the trips associated with the user and add it to the response (should be the)
-                user = qry
+                # Get all the trips associated with the user and add it to the response
                 trips = {}
                 trip_qry = Trip.query(ancestor=user.key).fetch()
                 for trip in trip_qry:
