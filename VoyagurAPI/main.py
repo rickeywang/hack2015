@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import webapp2
+from handlers.user import UserHandler
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
@@ -10,5 +11,6 @@ class MainHandler(webapp2.RequestHandler):
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
+    ('/user', UserHandler)
 ], debug=True)
 

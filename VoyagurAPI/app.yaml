@@ -1,4 +1,4 @@
-application: voyagur-1073
+application: gcp-hackthenorth-3108
 version: 1
 runtime: python27
 api_version: 1
