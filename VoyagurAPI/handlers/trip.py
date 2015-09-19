@@ -19,10 +19,33 @@ class TripHandler(webapp2.RequestHandler):
             self.response.write({'error': 'Unable to retrieve trip - Missing trip id'})
             return
 
+        parent = ndb.Key(urlsafe=trip_id).parent().get()
         trip = ndb.Key(urlsafe=trip_id).get()
-        self.response.status_int = 200
-        self.response.write(trip.format())
-        return
+
+        request = {
+            "user_id" : parent.key.urlsafe(),
+            "trip_id" : trip_id
+        }
+
+        fb_wrapper = FirebaseWrapper()
+        fb_response = fb_wrapper.firebase_get(request)
+
+        if fb_response.status_code == 200:
+            response = {
+                "trip_id" : trip_id,
+                "owner"   : parent.key.urlsafe(),
+                "name"    : trip.name,
+            }
+            entries = []
+            content = json.loads(fb_response.content)
+            for entry in content:
+                entries.append(content[entry])
+
+            response['entries'] = entries
+
+            self.response.status_int = 200
+            self.response.write(response)
+            return
 
     def post(self):
         """
@@ -79,14 +102,14 @@ class TripHandler(webapp2.RequestHandler):
 
                 if result.status_code == 200:
                     payload = {
-                        "id" : trip.key.urlsafe(),
+                        "trip_id" : trip.key.urlsafe(),
                         "lat": data.get('imageMediaMetadata').get('location').get('latitude') if data.get('imageMediaMetadata').get('location') else 0.0,
                         "long": data.get('imageMediaMetadata').get('location').get('longitude') if data.get('imageMediaMetadata').get('location') else 0.0,
                         "url" : data.get('embedLink'),
                         "thumbnail_link": data.get('thumbnailLink'),
                         "description" : data.get('description'),
                         "created" : data.get('createdDate'),
-                        "created_on_firebase": time.time()
+                        "created_on_firebase": int(time.time())
                     }
 
                     request = {
