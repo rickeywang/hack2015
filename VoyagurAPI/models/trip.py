@@ -13,9 +13,9 @@ class Trip(ndb.Model):
     def format(self):
         return {
             'id' : self.key.urlsafe(),
-            'start_date' : time.mktime(self.start_date.timetuple()),
+            'start_date' : int(time.mktime(self.start_date.timetuple())) if self.start_date else None,
             'start_location' : self.start_location,
-            'end_date' : time.mktime(self.end_date.timetuple()),
+            'end_date' : int(time.mktime(self.end_date.timetuple())) if self.end_date else None,
             'end_location' : self.end_location,
             'name'         : self.name
         }
