@@ -20,13 +20,17 @@ class FirebaseWrapper:
             self.response.write({'error': 'Unable to post trip - Missing trip id'})
             return
 
-        user = User.query(User.email==request.get('email')).get()
-        trip = ndb.Key(urlsafe=request.get('trip_id')).get()
+        firebase_url = FIREBASE_URL
+        url = firebase_url + request.get('user_id')  + "/" + request.get('trip_id') + ".json"
+        payload = to_json(request.get('payload'))
+        firebase_result = urlfetch.fetch(
+            url,
+            method = urlfetch.POST,
+            payload = payload,
+            headers = {
+                "Content-Type"  :"application/json",
+                "Authorization" : "OAuth " + FIREBASE_KEY
+            }
+        )
 
-        if user is None:
-            self.response.status_int = 400
-            self.response.write({'error': 'Unable to post trip - User does not exist'})
-            return
-
-        # Get user's key urlsafe id
-        # Get trip key urlsafe id
+        return firebase_result
