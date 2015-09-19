@@ -93,6 +93,7 @@ class TripHandler(webapp2.RequestHandler):
             fb_wrapper = FirebaseWrapper()
 
             # Go through each file id and get the file information
+            entities = []
             for t_id in request.get('file_ids'):
                 result = urlfetch.fetch(url="https://www.googleapis.com/drive/v2/files/{}".format(t_id),
                     method=urlfetch.GET,
@@ -123,12 +124,21 @@ class TripHandler(webapp2.RequestHandler):
                     if fb_response.status_code != 200:
                         logging.error("Error saving file {} to FB".format(t_id))
                         logging.error(fb_response.content)
+                    else:
+                        entities.append(payload)
                 else:
                     logging.error("Unable to retrieve file {}".format(t_id))
                     logging.error(result.content)
 
+            response = {
+                "trip_id" : trip.key.urlsafe(),
+                "owner"   : user.key.urlsafe(),
+                "name"    : trip.name,
+                "entities" : entities
+            }
+
             self.response.status_int = 200
             self.response.headers['Access-Control-Allow-Origin'] = "http://www.myvoyagr.co"
-            self.response.write(trip.format())
+            self.response.write(response)
             return
 
