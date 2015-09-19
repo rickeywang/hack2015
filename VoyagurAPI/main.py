@@ -2,6 +2,7 @@
 
 import webapp2
 from handlers.user import UserHandler
+from handlers.trip import TripHandler
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
@@ -11,6 +12,7 @@ class MainHandler(webapp2.RequestHandler):
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
-    ('/user', UserHandler)
+    ('/user', UserHandler),
+    ('/trip', TripHandler)
 ], debug=True)
 
