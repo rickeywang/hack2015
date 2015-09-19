@@ -30,10 +30,12 @@ class TripHandler(webapp2.RequestHandler):
 
         if request.get('name') is None:
             self.response.status_int = 400
+            self.response.headers['Access-Control-Allow-Origin'] = "https://www.myvoyagr.co"
             self.response.write({'error' : 'Missing name of trip'})
             return
         elif request.get('email') is None:
             self.response.status_int = 400
+            self.response.headers['Access-Control-Allow-Origin'] = "https://www.myvoyagr.co"
             self.response.write({'error' : 'Missing email that the trip will be associated with'})
             return
         else:
@@ -41,6 +43,7 @@ class TripHandler(webapp2.RequestHandler):
             user = User.query(User.email==request.get('email')).get()
             if user is None:
                 self.response.status_int = 400
+                self.response.headers['Access-Control-Allow-Origin'] = "https://www.myvoyagr.co"
                 self.response.write({'error' : 'Error retrieving user'})
                 return
 
@@ -50,6 +53,7 @@ class TripHandler(webapp2.RequestHandler):
             trip.put()
 
             self.response.status_int = 200
+            self.response.headers['Access-Control-Allow-Origin'] = "https://www.myvoyagr.co"
             self.response.write(trip.format())
             return
 

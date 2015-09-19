@@ -29,7 +29,7 @@ class UserHandler(webapp2.RequestHandler):
         for trip in trip_qry:
             trips[trip.name] = trip.key.urlsafe()
         self.response.status_int = 200
-        self.response.headers['Access-Control-Allow-Origin'] = "https://www.myvoyagur.co"
+        self.response.headers['Access-Control-Allow-Origin'] = "https://www.myvoyagr.co"
         self.response.write({'user': user.format(), 'trips' : trips})
         return
 
@@ -47,39 +47,39 @@ class UserHandler(webapp2.RequestHandler):
         request = to_json(self.request.body)
 
         # Verify the token on the Google servers
-        # url = "https://www.googleapis.com/oauth2/v3/tokeninfo?id_token={}".format(request.get('token'))
-        # result = urlfetch.fetch(url=url,
-        #     method=urlfetch.GET,
-        # )
+        url = "https://www.googleapis.com/oauth2/v3/tokeninfo?id_token={}".format(request.get('token'))
+        result = urlfetch.fetch(url=url,
+            method=urlfetch.GET,
+        )
 
-        # if result.get('status_code') == 200:
-            # content = result.get('body')
-            # Need to check the 'aud' property once we have a user to actually test this stuff with.
-            # For now we'll just assume everything worked and return a formatted new user
+        if result.status_code == 200:
+            content = to_json(result.content)
+        #     Need to check the 'aud' property once we have a user to actually test this stuff with.
+        #     For now we'll just assume everything worked and return a formatted new user
 
-        user = User.query(User.email==request.get('email')).get()
+            user = User.query(User.email==content.get('email')).get()
 
-        if user is None:
-            # Need to create a new user
-            user = User()
-            user.email = request.get('email')
-            user.put()
+            if user is None:
+                # Need to create a new user
+                user = User()
+                user.email = content.get('email')
+                user.put()
 
-            self.response.status_int = 200
-            self.response.headers['Access-Control-Allow-Origin'] = "https://www.myvoyagur.co"
-            self.response.write(user.format())
+                self.response.status_int = 200
+                self.response.headers['Access-Control-Allow-Origin'] = "http://www.myvoyagr.co"
+                self.response.write(user.format())
+            else:
+                # Get all the trips associated with the user and add it to the response
+                trips = {}
+                trip_qry = Trip.query(ancestor=user.key).fetch()
+                for trip in trip_qry:
+                    trips[trip.name] = trip.key.id()
+                self.response.status_int = 200
+                self.response.headers['Access-Control-Allow-Origin'] = "http://www.myvoyagr.co"
+                self.response.write({'user': user.format(), 'trips' : trips})
+                return
+
         else:
-            # Get all the trips associated with the user and add it to the response
-            trips = {}
-            trip_qry = Trip.query(ancestor=user.key).fetch()
-            for trip in trip_qry:
-                trips[trip.name] = trip.key.id()
-            self.response.status_int = 200
-            self.response.headers['Access-Control-Allow-Origin'] = "https://www.myvoyagur.co"
-            self.response.write({'user': user.format(), 'trips' : trips})
+            self.response.status_int = 400
+            self.response.write({'error': 'There was an error authenticating the user'})
             return
-
-        # else:
-        #     self.response.status_int = 400
-        #     self.response.write({'error': 'There was an error authenticating the user'})
-        #     return
