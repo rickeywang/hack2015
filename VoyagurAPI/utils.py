@@ -3,6 +3,9 @@
 import ast
 import string
 
+FIREBASE_URL = "https://voyagur.firebaseio.com/"
+FIREBASE_KEY = "CfqHEFTEVUQWYLS5uRaOYqBgYbNT3FVTcptnsAV2"
+
 # Change a string into a dict
 def to_json(request):
     # Ensure that all 'true's and 'false'es are replaced with their Python equivalents before

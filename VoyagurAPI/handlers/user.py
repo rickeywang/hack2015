@@ -39,6 +39,19 @@ class UserHandler(webapp2.RequestHandler):
                 user = User()
                 user.email = content.get('email')
                 user.put()
+                self.response.status_int = 200
+                self.response.write(user.format())
+            else:
+                # Get all the trips associated with the user and add it to the response (should be the)
+                user = qry
+                trips = {}
+                trip_qry = Trip.query(ancestor=user.key).fetch()
+                for trip in trip_qry:
+                    trips[trip.name] = trip.key.id()
+                self.response.status_int = 200
+                self.response.write({'user': user.format(), 'trips' : trips})
+                return
+
         else:
             self.response.status_int = 400
             self.response.write({'error': 'There was an error authenticating the user'})
