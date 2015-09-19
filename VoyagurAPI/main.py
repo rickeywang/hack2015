@@ -13,6 +13,8 @@ class MainHandler(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/user', UserHandler),
-    ('/trip', TripHandler)
+    ('/user/(.*)', UserHandler),
+    ('/trip', TripHandler),
+    ('/trip/(.*)', TripHandler)
 ], debug=True)
 

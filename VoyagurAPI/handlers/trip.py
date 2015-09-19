@@ -3,6 +3,7 @@
 import webapp2
 
 from google.appengine.api import urlfetch
+from google.appengine.ext import ndb
 from utils import to_json
 from models.trip import Trip
 from models.user import User
@@ -14,7 +15,7 @@ class TripHandler(webapp2.RequestHandler):
             self.response.write({'error': 'Unable to retrieve trip - Missing trip id'})
             return
 
-        trip = Trip.get_by_id(trip_id)
+        trip = ndb.Key(urlsafe=trip_id).get()
         self.response.status_int = 200
         self.response.write(trip.format())
         return
@@ -33,7 +34,7 @@ class TripHandler(webapp2.RequestHandler):
             return
         elif request.get('email') is None:
             self.response.status_int = 400
-            self.response.write('error' : 'Missing email that the trip will be associated with')
+            self.response.write({'error' : 'Missing email that the trip will be associated with'})
             return
         else:
             # Check that user model exists
@@ -44,7 +45,8 @@ class TripHandler(webapp2.RequestHandler):
                 return
 
             # Create a trip with that user model as ancestor
-            trip = Trip(ancestor=user.key)
+            trip = Trip(parent=user.key)
+            trip.name = request.get('name')
             trip.put()
 
             self.response.status_int = 200

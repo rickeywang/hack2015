@@ -11,15 +11,10 @@ class Trip(ndb.Model):
 
     def format(self):
         return {
-            'id' : self.key().id()
+            'id' : self.key.urlsafe(),
             'start_date' : self.start_date,
             'start_location' : self.start_location,
             'end_date' : self.end_date,
             'end_location' : self.end_location,
             'name'         : self.name
-        }
-
-    def format_ids_only(self):
-        return {
-            'id' : self.key().id()
         }

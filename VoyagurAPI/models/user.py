@@ -8,6 +8,6 @@ class User(ndb.Model):
 
     def format(self):
         return {
-            'id' : self.key().id(),
+            'id' : self.key.urlsafe(),
             'created' : self.created
         }
