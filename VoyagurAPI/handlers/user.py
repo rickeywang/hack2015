@@ -12,6 +12,11 @@ class UserHandler(webapp2.RequestHandler):
     POST /user
 
     Create a user given a Google token
+
+    Sample request body:
+    {
+        "token" : "1234abc"
+    }
     """
     def post(self):
         request = to_json(self.request.body)
@@ -34,3 +39,7 @@ class UserHandler(webapp2.RequestHandler):
                 user = User()
                 user.email = content.get('email')
                 user.put()
+        else:
+            self.response.status_int = 400
+            self.response.write({'error': 'There was an error authenticating the user'})
+            return
