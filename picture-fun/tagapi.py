@@ -1,26 +1,8 @@
-#!/usr/bin/env python
-#
-# Copyright 2007 Google Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-#
-# inject './lib' dir in the path so that we can simply do "import ndb"
-# or whatever there's in the app lib dir.
+__author__ = 'ric'
+
 import random
 import string
 import sys
-from google.appengine.api.urlfetch_errors import DeadlineExceededError
-import tagapi
 
 if 'lib' not in sys.path:
     sys.path[0:0] = ['lib']
@@ -35,11 +17,7 @@ from google.appengine.api import urlfetch
 from google.appengine.api import images
 
 
-class MainHandler(webapp2.RequestHandler):
-    def get(self):
-        self.response.write('Hello world!')
-
-class get_img_handler(webapp2.RequestHandler):
+class tagapi(webapp2.RequestHandler):
     img_tags = []
 
     def id_generator(self, size, chars=string.ascii_uppercase + string.digits + string.ascii_lowercase):
@@ -63,44 +41,18 @@ class get_img_handler(webapp2.RequestHandler):
             self.img_tags.append({'tag': tag_name,
                                   'weight': weight})
 
-    def get(self):
+    def post(self):
         self.img_tags = []
         # input params
-        img_description = ""
-        user_id = "aa"
-        try:
-            img_url = str(self.request.get('img_url'))
-            img_file_id = self.request.get('img_id')
-
-        except (TypeError, ValueError):
-            self.response.write("<html><body><p>Invalid inputs</p></body></html>")
-            img_url = "https://storage.googleapis.com/htn_user_photos/rickey_test/2015-01-25%2012.11.55.jpg"
-
-            img_file_id = "Afaca3fa4332i8a98jiuncueaa3awefa43wra43r"
-            user_id = "aa"
+        img_url = self.request.get('img_url')
+        img_file_id = self.request.get('img_id')
+        user_id = self.request.get('user_id')
+        img_metadata = json.loads(self.request.body)
 
         # get from google drive API files.get
-        img_metadata = {
-            "width": 2300,
-            "height": 1702,
-            "date": "2015:09:20 00:06:45",
-            "cameraMake": "LGE",
-            "cameraModel": "Nexus 5",
-            "exposureTime": 0.00029411764,
-            "aperture": 2.4,
-            "flashUsed": False,
-            "focalLength": 3.97,
-            "isoSpeed": 100,
-            "meteringMode": "CenterWeightedAverage",
-            "sensor": "One-chip color area",
-            "exposureMode": "Auto",
-            "colorSpace": "sRGB",
-            "maxApertureValue": 2.53,
-            "subjectDistance": 0
-        }
-
-        self.response.write('Source Image ' + img_url)
-        self.response.write('<p></p>')
+        img_description = img_metadata['description']
+        # self.response.write('Source Image ' + img_url)
+        # self.response.write('<p></p>')
 
         # api config
         # indico
@@ -132,26 +84,27 @@ class get_img_handler(webapp2.RequestHandler):
         indico_response = urlfetch.fetch(method=urlfetch.POST, url=indico_t1api_url + "?" + indico_param_data,
                                          payload=json.dumps(indico_txt_payload))
         indico_t1_response = json.loads(indico_response.content)
-        self.response.write(indico_t1_response)
+        # self.response.write(indico_t1_response)
         try:
             for i in indico_t1_response['results'].keys():
                 self.add_tag(i, indico_t1_response['results'][i])
         except KeyError:
-            self.response.write(' Nothing for this response ')
+            pass
         except TypeError:
             pass
 
         indico_response = urlfetch.fetch(method=urlfetch.POST, url=indico_t2api_url + "?" + indico_param_data,
                                          payload=json.dumps(indico_txt_payload))
         indico_t2_response = json.loads(indico_response.content)
-        self.response.write(indico_t2_response)
+        # self.response.write(indico_t2_response)
         try:
             for i in indico_t2_response['results'].keys():
                 self.add_tag(i, indico_t2_response['results'][i])
         except KeyError:
-            self.response.write(' Nothing for indico_t2_response ')
+            pass
         except TypeError:
             pass
+
         # indico emotion
         # get img file and convert to base64
         img_request_response = urlfetch.fetch(method=urlfetch.GET, url=img_url)
@@ -161,23 +114,20 @@ class get_img_handler(webapp2.RequestHandler):
         })
         # self.response.write(indico_img_payload)
         # send img to az for face coordinates
-        try:
-            az_response = urlfetch.fetch(method=urlfetch.POST,
+        az_response = urlfetch.fetch(method=urlfetch.POST,
                                      url=az_cvapi_url,
                                      payload=az_cvapi_payload,
                                      headers=az_cvapi_headers)
-            az_cvapi_response = json.loads(az_response.content)
-        except DeadlineExceededError:
-            az_cvapi_response = []
-        self.response.write(az_cvapi_response)
+        az_cvapi_response = json.loads(az_response.content)
+        # self.response.write(az_cvapi_response)
         # add azure categories
         try:
             for i in range(len(az_cvapi_response['categories'])):
                 category_name = az_cvapi_response['categories'][i]['name']
                 category_name = category_name.replace('_', ' ')
-                self.add_tag(category_name, az_cvapi_response['categories'][i]['score'])
+                # self.add_tag(category_name, az_cvapi_response['categories'][i]['score'])
         except KeyError:
-            self.response.write(' Nothing for this response ')
+            pass
 
         # crop each one for emotion analysis
         try:
@@ -194,7 +144,7 @@ class get_img_handler(webapp2.RequestHandler):
                                    (y1 + h) / img_manip_obj.height
                                    )
                 faces_bin_data = img_manip_obj.execute_transforms(output_encoding=images.JPEG)
-                self.response.write('<img src=\"data:image/jpeg;base64,' + base64.b64encode(faces_bin_data) + '\"/>')
+                # self.response.write('<img src=\"data:image/jpeg;base64,' + base64.b64encode(faces_bin_data) + '\"/>')
                 # get emotion of the face
                 indico_img_payload = {
                     'data': base64.b64encode(faces_bin_data)
@@ -203,14 +153,14 @@ class get_img_handler(webapp2.RequestHandler):
                                                  url=indico_i2api_url + "?" + indico_param_data,
                                                  payload=json.dumps(indico_img_payload))
                 img_face_emo = json.loads(indico_response.content)
-                self.response.write(img_face_emo)
+                # self.response.write(img_face_emo)
 
                 for i in img_face_emo['results'].keys():
                     if img_face_emo['results'][i] > 0.35:
                         self.add_tag(i, img_face_emo['results'][i] / len(az_cvapi_response['faces']))
 
         except KeyError:
-            self.response.write(' Nothing for this response ')
+            pass
 
         # image tagging imagga
         cv_api_url = "http://api.imagga.com/v1/tagging"
@@ -226,17 +176,17 @@ class get_img_handler(webapp2.RequestHandler):
         cv_response_raw = urlfetch.fetch(method=urlfetch.GET, url=cv_api_url + "?" + cv_param_data, headers=cv_headers)
         cv_response = json.loads(cv_response_raw.content)
         # debug show
-        self.response.write(cv_response)
+        #self.response.write(cv_response)
         # add imagga tags
         try:
             i = 0
             while (i < 5):
-                if cv_response['results'][0]['tags'][1]['confidence'] > 19:
-                    self.add_tag(cv_response['results'][0]['tags'][1]['tag'],
-                                 cv_response['results'][0]['tags'][1]['confidence'] / 100)
+                if cv_response['results'][0]['tags'][i]['confidence'] > 18:
+                    self.add_tag(cv_response['results'][0]['tags'][i]['tag'],
+                                 cv_response['results'][0]['tags'][i]['confidence'] / 100)
                 i = i + 1
         except KeyError:
-            self.response.write(' Nothing for cv_response ')
+            pass
         except IndexError:
             pass
 
@@ -249,7 +199,7 @@ class get_img_handler(webapp2.RequestHandler):
             gmaps_param_data = urllib.urlencode(gmaps_rgapi_params)
             gmaps_response = urlfetch.fetch(method=urlfetch.GET, url=gmaps_rgapi_url + "?" + gmaps_param_data)
             gmaps_rgapi_response = json.loads(gmaps_response.content)
-            self.response.write(gmaps_rgapi_response)
+            # self.response.write(gmaps_rgapi_response)
 
             for i in range(len(gmaps_rgapi_response['results'][0]['address_components'])):
                 for j in range(len(gmaps_rgapi_response['results'][0]['address_components'][i]['types'])):
@@ -258,7 +208,9 @@ class get_img_handler(webapp2.RequestHandler):
                         # Save this tag
                         self.add_tag(gmaps_rgapi_response['results'][0]['address_components'][i]['long_name'], 1)
         except KeyError:
-            self.response.write(' Nothing for this gmap response ')
+            pass
+        except IndexError:
+            pass
 
 
 
@@ -266,7 +218,7 @@ class get_img_handler(webapp2.RequestHandler):
 
         # some pretty display thing for the tags
 
-        self.response.write('<p>' + str(self.img_tags) + '</p>')
+        self.response.write(json.dumps(self.img_tags))
 
         # save the img_tags object to Firebase
 
@@ -291,7 +243,7 @@ class get_img_handler(webapp2.RequestHandler):
                                                 headers=searchapi_headers)
         searchapi_response = json.loads(searchapi_response_raw.content)
         # debug show
-        self.response.write('<p>' + str(searchapi_response) + '</p>')
+        # self.response.write('<p>' + str(searchapi_response) + '</p>')
 
         # delete the old entries. upload new entries.
         az_searchapi2_url = "https://voyagr.search.windows.net/indexes/photos/docs/index"
@@ -310,7 +262,8 @@ class get_img_handler(webapp2.RequestHandler):
                     "search_id": self.id_generator(31),
                     "file_id": img_file_id,
                     "tag": self.img_tags[i]['tag'],
-                    "user_id": user_id
+                    "user_id": user_id,
+                    "url":img_url
                 })
             # add description
             search_index['value'].append({
@@ -318,10 +271,11 @@ class get_img_handler(webapp2.RequestHandler):
                 "search_id": self.id_generator(31),
                 "file_id": img_file_id,
                 "full_text": img_description,
-                "user_id": user_id
+                "user_id": user_id,
+                "url":img_url
             })
         except KeyError:
-            self.response.write(" azure search return was bad ")
+            pass
         searchapi_params = {
             "api-version": "2015-02-28"
         }
@@ -332,10 +286,5 @@ class get_img_handler(webapp2.RequestHandler):
                                                 headers=searchapi_headers,
                                                 payload=json.dumps(search_index))
         self.response.write('<p>' + str(searchapi_response_raw.content) + '</p>')
+        self.img_tags = []
 
-
-app = webapp2.WSGIApplication([
-    ('/', MainHandler),
-    ('/get_img', get_img_handler),
-    ('/tagapi', tagapi.tagapi)
-], debug=True)
