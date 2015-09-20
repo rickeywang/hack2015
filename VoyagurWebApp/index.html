@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset=utf-8 />
-	<title>My Voyagr</title> 
+	<title>Voyagr</title>
 	<link rel="shortcut icon" href="favicon.ico">
 
 	<!--google signin-->
@@ -14,11 +14,11 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   	<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-  
+
 
 	<!--bootstrap css and js-->
 	<link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-	    
+
 	 <!--mapbox js and css-->
 	<script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.2/mapbox.js'></script>
 	<link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.2/mapbox.css' rel='stylesheet' />
@@ -33,7 +33,7 @@
 	<!--google maps css and js-->
 	<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
-        
+
 	<!--iscroll and dropdown js-->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.1.1/iscroll-min.js"></script>
 	<script src="https://cdn.rawgit.com/ungki/bootstrap.dropdown/3.3.1/dropdown.min.js"></script>
@@ -71,7 +71,7 @@
 	      	<p id="tripLabel">Trip Name: </p><input type="text" name="newTripName" id="newTripName" class="postInput" />
 			<button onClick="newTrip(newTripName.value)" id="btnCreateTrip">CREATE</button>
 	      	</li>
-	        <li><p id="currTripLabel">Current Trip: </p> 
+	        <li><p id="currTripLabel">Current Trip: </p>
 			<select class="form-control" id="tripSelect">
 			</select>
 			</li>
@@ -100,9 +100,9 @@
 		        <h1>Images</h1>
 		      </div>
 
-		      
+
 		      <ul class="drawer-menu">
-		        <li class="drawer-menu-item">	
+		        <li class="drawer-menu-item">
 		          <p onClick="uploadPhotos()">Upload Photos to Current Trip</p>
 		        </li>
 		        <li class="drawer-menu-item"><p>Current Trip</p>
@@ -124,13 +124,13 @@
   		<h2>Add a new post.</h2>
 		<p>Location: </p><input type="text" onfocus="geolocate()" id="location" class="postInput" />
 		<p>Title: </p><input type="text" id="title" class="postInput" />
-		<p>Description: </p><textarea id="description" class="postInput"></textarea> 
+		<p>Description: </p><textarea id="description" class="postInput"></textarea>
 		<p>Photos: </p>
 		<div id="postImages">
 		</div>
 		<button onClick="addPost()">ADD</button>
 	  </div>
-		
+
 		<div id='control-panel' class="control-panel">
 			<div id="existing-posts">
 			</div>
