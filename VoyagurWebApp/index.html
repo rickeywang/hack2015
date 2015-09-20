@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=utf-8 />
+	<title>Voyagr</title>
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<!--google signin-->
+	<meta name="google-signin-scope" content="profile email https://www.googleapis.com/auth/drive.file">
+    <meta name="google-signin-client_id" content="186158066963-05merjcea3mio8kcajk0sg72kq8mrchh.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+	<!--jquery js and css-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  	<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+
+	<!--bootstrap css and js-->
+	<link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+	 <!--mapbox js and css-->
+	<script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.2/mapbox.js'></script>
+	<link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.2/mapbox.css' rel='stylesheet' />
+
+    <!--Drive js -->
+    <script src="drive.js"></script>
+
+	  <!-- The Google API Loader script. -->
+    <script type="text/javascript" src="https://apis.google.com/js/api.js"></script>
+    <script type="text/javascript" src="https://apis.google.com/js/client.js"></script>
+
+	<!--google maps css and js-->
+	<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+
+	<!--iscroll and dropdown js-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.1.1/iscroll-min.js"></script>
+	<script src="https://cdn.rawgit.com/ungki/bootstrap.dropdown/3.3.1/dropdown.min.js"></script>
+
+	<!-- drawer css js -->
+	<link rel="stylesheet" href="drawer.min.css">
+	<script src="jquery.drawer.min.js"></script>
+
+	<!--fonts-->
+	<link href='http://fonts.googleapis.com/css?family=Raleway:400,200,700' rel='stylesheet' type='text/css'/>
+
+	<!--main js and css-->
+	<script src="main.js"></script>
+	<link type="text/css" rel="stylesheet" href="main.css"/>
+
+</head>
+<body class="drawer drawer-left site-base">
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="#"><img src="logo.png" height=100% /></a>
+	    </div>
+
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav navbar-right">
+	      	<li>
+	      	<p id="tripLabel">Trip Name: </p><input type="text" name="newTripName" id="newTripName" class="postInput" />
+			<button onClick="newTrip(newTripName.value)" id="btnCreateTrip">CREATE</button>
+	      	</li>
+	        <li><p id="currTripLabel">Current Trip: </p>
+			<select class="form-control" id="tripSelect">
+			</select>
+			</li>
+			<li>
+				<button onClick="showAddPost()" id="btnNewPost">New Post</button>
+			</li>
+			<li>
+				<button onClick="logOut()" id="btnLogOut">Logout</button>
+			</li>
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+	<div class="masterContainer">
+		<header role="banner">
+		  <div class="drawer-header">
+		    <button type="button" class="drawer-toggle drawer-hamburger">
+		      <span class="sr-only">toggle navigation</span>
+		      <span class="drawer-hamburger-icon"></span>
+		    </button>
+		  </div>
+
+		  <div class="drawer-main drawer-default">
+		    <nav class=" drawer-nav" role="navigation">
+		      <div class="drawer-brand">
+		        <h1>Images</h1>
+		      </div>
+
+
+		      <ul class="drawer-menu">
+		        <li class="drawer-menu-item">
+		          <p onClick="uploadPhotos()">Upload Photos to Current Trip</p>
+		        </li>
+		        <li class="drawer-menu-item"><p>Current Trip</p>
+		          <ul class="drawer-submenu" id="currTrip">
+		          </ul>
+		        </li>
+		      </ul>
+		      <div class="drawer-footer">
+		        <span>Footer text</span>
+		      </div>
+		    </nav>
+		  </div>
+		</header>
+
+	  <div id="map_geo" class="map"></div>
+
+	  <div id="addPostContainer">
+	  	<span id="closeAdd" onClick="hideAddPost()">X</span>
+  		<h2>Add a new post.</h2>
+		<p>Location: </p><input type="text" onfocus="geolocate()" id="location" class="postInput" />
+		<p>Title: </p><input type="text" id="title" class="postInput" />
+		<p>Description: </p><textarea id="description" class="postInput"></textarea>
+		<p>Photos: </p>
+		<div id="postImages">
+		</div>
+		<button onClick="addPost()">ADD</button>
+	  </div>
+
+		<div id='control-panel' class="control-panel">
+			<div id="existing-posts">
+			</div>
+		</div>
+	</div>
+	<div id="fadeBackground">
+			<div id="login-panel">
+				<div class="row" style="100%">
+					<div class="col-md-12" style="100%">
+						<img src="logo.png" width="200px" />
+						<h1>Make your trips unforgettable.</h1>
+						<p>Sign in today to keep track of your backpacking and adventuring, and share your experiences around the world with friends!</p><br/>
+						<div class="g-signin2" style="margin:0 auto; width: 130px" data-onsuccess="onSignIn" data-theme="dark"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<script src="map.js"></script>
+</body>
+</html>

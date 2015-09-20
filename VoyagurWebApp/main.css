@@ -1,0 +1,177 @@
+
+body { 
+	margin:0; padding:0;
+	width:100%;
+	font-family: 'Raleway', sans-serif;
+}
+.map { 
+	height:100%; width:100%; 
+}
+
+.control-panel {
+	border:0.5px solid white;
+	border-radius: 15px;
+	background:#fff;
+	position:absolute;
+	width:25%;
+	top:10px;
+	right:10px;
+	bottom:20px;	
+	padding: 10px;
+	overflow:auto; 
+}
+
+.navItem {
+	border: 1px solid blue;
+	border-radius: 10px;
+	color: lightblue;
+}
+
+#login-panel {
+	border: 0.5px solid white;
+	border-radius: 10px;
+	background-color: white;
+	width: 600px;
+	height: 300px;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+	padding: 40px;
+	text-align: center;
+}
+
+#fadeBackground {
+	background-color: rgba(0, 0, 0, 0.8);
+	position: absolute;
+	top:0;
+	left:0;
+	height:100%;
+	width:100%;
+	z-index: 9999;
+}
+
+.postInput {
+	width: 100%;
+}
+
+.drawerImg {
+	margin: 10px 0;
+}
+
+#postImages{
+	border: 1px solid lightblue;
+	height: 150px;
+	width: 100%;
+}
+
+.drawer-hamburger-icon, .drawer-hamburger-icon:before, .drawer-hamburger-icon:after{
+	background-color: black;
+}
+
+.drawer-toggle {
+	top:auto;
+	bottom:0;
+}
+
+.drawer-overlay-upper {
+	background-color: rgba(0,0,0, 0);
+	pointer-events: none;
+}
+
+#currTripLabel{
+	display: inline;
+}
+
+#tripSelect {
+	display: inline-block;
+	width: 150px;
+	height:30px;
+	margin: 7px 6px 0px 6px;
+}
+
+.masterContainer {
+	position:absolute;
+	top:50px;
+	bottom:0px;
+	width:100%;
+}
+
+#addPostContainer {
+	border: 1px solid gray;
+	border-radius: 5px;
+	padding: 10px;
+	display:none;
+	width: 70%;
+	height: 90%;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+	background-color: lightgray;
+	z-index: 8888;
+	overflow:auto;
+}
+
+#closeAdd {
+	float:right;
+	cursor: pointer;
+}
+
+#btnNewPost {
+	margin: 5px 6px 0 6px;
+	border: 0.5px solid #FFBA48;
+	border-radius: 15px;
+	color:white;
+	background-color:#FFBA48;
+	padding: 6px 15px;
+	outline: none;
+}
+
+#btnNewPost:hover {
+	background-color:#F7A825;
+}
+
+
+#btnLogOut {
+	margin: 5px 6px 0 6px;
+	border: 0.5px solid #666158;
+	border-radius: 15px;
+	color:white;
+	background-color:#666158;
+	padding: 6px 15px;
+	outline: none;
+}
+
+#btnLogOut:hover {
+	background-color:#4F4B46;
+}
+
+#btnCreateTrip {
+	margin: 5px 14px 0 2px;
+	border: 0.5px solid #666158;
+	border-radius: 15px;
+	color:white;
+	background-color:#666158;
+	padding: 6px 15px;
+	outline: none;
+}
+
+#btnCreateTrip:hover {
+	background-color:#4F4B46;
+}
+
+#tripLabel{
+	display:inline;
+}
+
+#newTripName {
+	display: inline-block;
+	width: 150px;
+	height:30px;
+	margin: 7px 6px 0px 6px;
+}
