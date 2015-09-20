@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="140dp"
+    android:layout_centerHorizontal="true"
+    android:layout_centerVertical="true"
+    android:layout_gravity="center_horizontal">
+
+    <!-- Content inside the card -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/card_padding"
+        tools:background="#22000000"
+        android:gravity="center">
+
+        <!-- App icon. Default launch icon as placeholder -->
+        <ImageView
+            android:id="@+id/app_icon"
+            android:layout_width="@dimen/icon_width"
+            android:layout_height="@dimen/icon_height"
+            android:src="@drawable/ic_logo" />
+
+r        <!-- App's package name -->
+        <TextView
+            android:id="@+id/app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:singleLine="true"
+            android:text="Make your trips unforgettable"
+            tools:ignore="HardcodedText"
+            android:textColor="@color/black"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/app_icon"
+            android:layout_toEndOf="@+id/app_icon"/>
+
+        <!-- App's file size-->
+        <TextView
+            android:id="@+id/app_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:singleLine="true"
+            android:textSize="13sp"
+            android:textColor="@color/black"
+            android:text="Never forget a moment again"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            tools:ignore="HardcodedText"/>
+
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/sign_in_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="Sign in with Google+" />
+
+
+
+    </LinearLayout>
+</android.support.v7.widget.CardView>
