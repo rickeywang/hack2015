@@ -50,7 +50,7 @@ r        <!-- App's package name -->
             android:singleLine="true"
             android:textSize="13sp"
             android:textColor="@color/black"
-            android:text="Never forget a trip again. Keep your first memory now."
+            android:text="Never forget a moment again"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
             tools:ignore="HardcodedText"/>
