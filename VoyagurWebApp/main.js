@@ -12,8 +12,7 @@ $("document").ready(function(){
   $(".drawer").drawer();
 
   //load google photos
-  onApiLoad();
-  autoUploadGooglePhotos();
+  //autoUploadGooglePhotos();
 
   //drawer img dragging
   $( ".drawerImg" ).draggable({

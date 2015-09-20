@@ -5,7 +5,7 @@ var developerKey = 'AIzaSyCyeXft5v3Bkt9J-Loq3Lzz9bgDPapqHNo';
 var clientId = "186158066963-05merjcea3mio8kcajk0sg72kq8mrchh.apps.googleusercontent.com"
 
 // Scope to use to access user's photos.
-var scope = ['https://www.googleapis.com/auth/drive.file', 'email', 'profile'];
+var scope = ['https://www.googleapis.com/auth/drive.photos.readonly'];
 
 var pickerApiLoaded = false;
 var oauthToken;
@@ -18,7 +18,7 @@ function uploadPhotos(){
     return;
   }
   tripName = $("#tripSelect option:selected").text();
-  createPicker();
+  onApiLoad();
 }
 
 
@@ -35,24 +35,20 @@ function autoUploadGooglePhotos(){
     xhr.send("corpus=DEFAULT&maxResults=20&spaces=photos&pageToken=" + oauthToken + "&key=" + developerKey);*/
 
     gapi.client.load('drive', 'v2', function(){
-          console.log("fdsa");
 
      var retrievePageOfFiles = function(request, result) {
-          console.log("asdaffaf");
       request.execute(function(resp) {
         result = result.concat(resp.items);
         var nextPageToken = resp.nextPageToken;
         if (nextPageToken) {
           request = gapi.client.drive.files.list({
             'spaces':'photos',
-            'pageToken': nextPageToken,
             'corpus': 'DEFAULT',
-            'maxResults':20,
-            'orderBy':'createdDate'
+            'maxResults':5,
+            'orderBy':'createdDate desc'
           });
           retrievePageOfFiles(request, result);
         } else {
-          console.log("asdf");
           callback(result);
         }
       });
@@ -84,13 +80,13 @@ function onAuthApiLoad() {
 
 function onPickerApiLoad() {
   pickerApiLoaded = true;
-  //createPicker();
+  createPicker();
 }
 
 function handleAuthResult(authResult) {
   if (authResult && !authResult.error) {
     oauthToken = authResult.access_token;
-    //createPicker();
+    createPicker();
   }
 }
 

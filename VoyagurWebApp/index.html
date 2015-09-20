@@ -3,6 +3,7 @@
 <head>
 	<meta charset=utf-8 />
 	<title>My Voyagr</title> 
+	<link rel="shortcut icon" href="favicon.ico">
 
 	<!--google signin-->
 	<meta name="google-signin-scope" content="profile email https://www.googleapis.com/auth/drive.file">
@@ -41,6 +42,9 @@
 	<link rel="stylesheet" href="drawer.min.css">
 	<script src="jquery.drawer.min.js"></script>
 
+	<!--fonts-->
+	<link href='http://fonts.googleapis.com/css?family=Raleway:400,200,700' rel='stylesheet' type='text/css'/>
+
 	<!--main js and css-->
 	<script src="main.js"></script>
 	<link type="text/css" rel="stylesheet" href="main.css"/>
@@ -57,21 +61,25 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </button>
-	      <a class="navbar-brand" href="#">Voyagr</a>
+	      <a class="navbar-brand" href="#"><img src="logo.png" height=100% /></a>
 	    </div>
 
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav navbar-right">
-	        <li>Current Trip: 
-			<select id="tripSelect">
+	      	<li>
+	      	<p id="tripLabel">Trip Name: </p><input type="text" name="newTripName" id="newTripName" class="postInput" />
+			<button onClick="newTrip(newTripName.value)" id="btnCreateTrip">CREATE</button>
+	      	</li>
+	        <li><p id="currTripLabel">Current Trip: </p> 
+			<select class="form-control" id="tripSelect">
 			</select>
 			</li>
 			<li>
-				<button onClick="showAddPost()">New Post</button>
+				<button onClick="showAddPost()" id="btnNewPost">New Post</button>
 			</li>
 			<li>
-				<button onClick="logOut()" style="float:bottom">Logout</button>
+				<button onClick="logOut()" id="btnLogOut">Logout</button>
 			</li>
 	      </ul>
 	    </div><!-- /.navbar-collapse -->
@@ -99,7 +107,6 @@
 		        </li>
 		        <li class="drawer-menu-item"><p>Current Trip</p>
 		          <ul class="drawer-submenu" id="currTrip">
-		          <li class="drawer-submenu-item"><img src="about.jpg" width="100%" class="drawerImg ui-widget ui-widget-content"/></li>
 		          </ul>
 		        </li>
 		      </ul>
@@ -125,21 +132,18 @@
 	  </div>
 		
 		<div id='control-panel' class="control-panel">
-			<p>Create new trip</p>
-			<p>Trip Name: </p><input type="text" name="newTripName" id="newTripName" class="postInput" />
-			<button onClick="newTrip(newTripName.value)">CREATE</button>
-			<br/>
 			<div id="existing-posts">
 			</div>
 		</div>
 	</div>
 	<div id="fadeBackground">
 			<div id="login-panel">
-				<div class="row">
-					<div class="col-md-12">
+				<div class="row" style="100%">
+					<div class="col-md-12" style="100%">
+						<img src="logo.png" width="200px" />
 						<h1>Make your trips unforgettable.</h1>
-						<p>Sign in today to keep track of your backpacking and adventuring, and share your experiences around the world with friends!</p>
-						<div class="g-signin2" style="margin:0 auto" data-onsuccess="onSignIn" data-theme="dark"></div>
+						<p>Sign in today to keep track of your backpacking and adventuring, and share your experiences around the world with friends!</p><br/>
+						<div class="g-signin2" style="margin:0 auto; width: 130px" data-onsuccess="onSignIn" data-theme="dark"></div>
 					</div>
 				</div>
 			</div>

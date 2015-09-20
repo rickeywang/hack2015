@@ -46,11 +46,13 @@ function addPost(){
     return;
   }
 
+  hideAddPost();
+
   var tripID = tripSelect.options[tripSelect.selectedIndex].value;
 
 	var location = document.getElementById("location").value;
 	var title = document.getElementById("title").value;
-	var description = document.getElementById("description").value;
+	var description = document.getElementById("description").value.replace(/\r?\n/g, '<br />');
   var imageArray = $("#postImages img").map(function() {
     return this.src;
   });
@@ -69,7 +71,7 @@ function addMarker(x, y, title, description, images, tripID){
     	"marker-size": "medium",
   	})
   });
-  var popupContent = "<h1>" + title + "</h1><p>" + description + "</p>";
+  var popupContent = "<div style='width:800px; height:1px'></div><h1 style='font-size:30px; font-weight:bold; '>" + title + "</h1><p><div class='glyphicon glyphicon-map-marker'></div>" + document.getElementById("location").value + "</p><p>" + description + "</p>";
   for(var i = 0; i < images.length; i++){
     popupContent += "<img src='" + images[i] + "' width=100% /><br/>"
   }
