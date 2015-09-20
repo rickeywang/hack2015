@@ -17,49 +17,9 @@ function uploadPhotos(){
     alert("Please select a trip, or create a new trip.");
     return;
   }
+  $(".drawer").drawer("close");
   tripName = $("#tripSelect option:selected").text();
   onApiLoad();
-}
-
-
-function autoUploadGooglePhotos(){
-   //get file metadata
-   /*
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://www.googleapis.com/drive/v2/files');
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.onload = function() {
-      var responseJson = xhr.responseText;
-      console.log(responseJson);
-    };
-    xhr.send("corpus=DEFAULT&maxResults=20&spaces=photos&pageToken=" + oauthToken + "&key=" + developerKey);*/
-
-    gapi.client.load('drive', 'v2', function(){
-
-     var retrievePageOfFiles = function(request, result) {
-      request.execute(function(resp) {
-        result = result.concat(resp.items);
-        var nextPageToken = resp.nextPageToken;
-        if (nextPageToken) {
-          request = gapi.client.drive.files.list({
-            'spaces':'photos',
-            'corpus': 'DEFAULT',
-            'maxResults':5,
-            'orderBy':'createdDate desc'
-          });
-          retrievePageOfFiles(request, result);
-        } else {
-          callback(result);
-        }
-      });
-    }
-    var initialRequest = gapi.client.drive.files.list();
-    retrievePageOfFiles(initialRequest, []);
-    });
-}
-
-function callback(result){
-  console.log(result);
 }
 
 // Use the API Loader script to load google.picker and gapi.auth.

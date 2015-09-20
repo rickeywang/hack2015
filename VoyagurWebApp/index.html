@@ -2,8 +2,8 @@
 <html>
 <head>
 	<meta charset=utf-8 />
-	<title>My Voyagr</title> 
-	<link rel="shortcut icon" href="favicon.ico">
+	<title>My Voyagr</title>
+	<link rel="icon" type="image/x-icon" href="http://www.myvoyagr.co/favicon.ico">
 
 	<!--google signin-->
 	<meta name="google-signin-scope" content="profile email https://www.googleapis.com/auth/drive.file">
@@ -119,16 +119,19 @@
 
 	  <div id="map_geo" class="map"></div>
 
-	  <div id="addPostContainer">
-	  	<span id="closeAdd" onClick="hideAddPost()">X</span>
-  		<h2>Add a new post.</h2>
-		<p>Location: </p><input type="text" onfocus="geolocate()" id="location" class="postInput" />
-		<p>Title: </p><input type="text" id="title" class="postInput" />
-		<p>Description: </p><textarea id="description" class="postInput"></textarea> 
-		<p>Photos: </p>
-		<div id="postImages">
-		</div>
-		<button onClick="addPost()">ADD</button>
+		<div id="fadeBackground2">
+		  <div id="addPostContainer">
+		  	<span id="closeAdd" onClick="hideAddPost()">X</span>
+	  		<h2>New Post</h2>
+			<p>Title: </p><input type="text" id="title" class="postInput" />
+			<p>Location: </p><input type="text" onfocus="geolocate()" id="location" class="postInput" />
+			<p>Note: </p><textarea id="description" class="postInput"></textarea> 
+			<p>Photos: </p>
+			<div id="postImages">
+
+			</div>
+			<button onClick="addPost()" id="btnSavePost">Save post</button>
+		  </div>
 	  </div>
 		
 		<div id='control-panel' class="control-panel">

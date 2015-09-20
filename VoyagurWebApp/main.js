@@ -115,11 +115,11 @@ function getGooglePhotos(fileId) {
 
 
 function showAddPost() {
-  $("#addPostContainer").fadeIn();
+  $("#fadeBackground2").fadeIn();
 }
 
 function hideAddPost() {
-  $("#addPostContainer").fadeOut();
+  $("#fadeBackground2").fadeOut();
 }
 
 function first(obj) {
