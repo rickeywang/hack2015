@@ -106,7 +106,6 @@ class TripHandler(webapp2.RequestHandler):
                         "trip_id" : trip.key.urlsafe(),
                         "lat": data.get('imageMediaMetadata').get('location').get('latitude') if data.get('imageMediaMetadata').get('location') else 0.0,
                         "long": data.get('imageMediaMetadata').get('location').get('longitude') if data.get('imageMediaMetadata').get('location') else 0.0,
-                        "url" : data.get('embedLink'),
                         "thumbnail_link": data.get('thumbnailLink'),
                         "description" : data.get('description'),
                         "created" : data.get('createdDate'),
