@@ -18,6 +18,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -72,9 +73,6 @@ public class MainActivity extends ActionBarActivity implements
     private MapView mv;
 	private UserLocationOverlay myLocationOverlay;
 	private String currentMap = null;
-//    private RecyclerView rv;
-//
-//    private ArrayList<Login> appBundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,15 +94,6 @@ public class MainActivity extends ActionBarActivity implements
         mv.setUserLocationRequiredZoom(10);
 
         mv.loadFromGeoJSONURL("https://gist.githubusercontent.com/tmcw/10307131/raw/21c0a20312a2833afeee3b46028c3ed0e9756d4c/map.geojson");
-
-//        rv = (RecyclerView) findViewById(R.id.app_list);
-//
-//        rv.setHasFixedSize(true);
-//        rv.setLayoutManager(new GridLayoutManager(this, 4));
-
-//        initializeData();
-//        initializeAdapter();
-
 
 //        setButtonListeners();
 //        Marker m = new Marker(mv, "Edinburgh", "Scotland", new LatLng(55.94629, -3.20777));
@@ -403,6 +392,8 @@ public class MainActivity extends ActionBarActivity implements
         // ConnectionResult to see possible error codes.
         Log.d(TAG, "onConnectionFailed:" + connectionResult);
 
+//        initMarks();
+
         if (!mIsResolving && mShouldResolve) {
             if (connectionResult.hasResolution()) {
                 try {
@@ -473,6 +464,9 @@ public class MainActivity extends ActionBarActivity implements
                 // [START sign_in_clicked]
                 mShouldResolve = true;
                 mGoogleApiClient.connect();
+
+                initMarks();
+
                 // [END sign_in_clicked]
                 break;
 //            case -123: //R.id.sign_out_button
@@ -499,5 +493,23 @@ public class MainActivity extends ActionBarActivity implements
 //                updateUI(false);
 //                break;
         }
+    }
+
+    private void initMarks(){
+
+        CardView cv = (CardView) findViewById(R.id.cardsignview);
+        cv.setVisibility(CardView.GONE);
+
+        Marker m = new Marker(mv, "Waterloo", "Canada", new LatLng(43.4667, -80.5167));
+        m.setIcon(new Icon(this, Icon.Size.SMALL, "marker-stroked", "ee8a65"));
+        mv.addMarker(m);
+
+        m = new Marker(mv, "Toronto", "Canada", new LatLng(43.7000, -79.4000));
+        m.setIcon(new Icon(this, Icon.Size.LARGE, "city", "3887be"));
+        mv.addMarker(m);
+
+        m = new Marker(mv, "Kingston", "Canada", new LatLng(44.2333, -76.5000));
+        m.setIcon(new Icon(this, Icon.Size.LARGE, "city", "3887be"));
+        mv.addMarker(m);
     }
 }
