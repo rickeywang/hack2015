@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Voyagr</string>
+	<string name="mapbox">Mapbox</string>
+    <string name="menu_examplemaps">Example Maps</string>
+	<string name="reportBugs">Report Bugs</string>
+
+	<!-- Map Labels -->
+	<string name="satellite">Satellite</string>
+	<string name="terrain">Terrain</string>
+	<string name="street">Street</string>
+	<string name="outdoors">Outdoors</string>
+	<string name="woodcut">Woodcut</string>
+	<string name="pencil">Pencil</string>
+	<string name="spaceShip">Space Ship</string>
+
+	<!-- Map Ids -->
+	<string name="satelliteMapId">mapbox.satellite</string>
+	<string name="terrainMapId">mapbox.run-bike-hike</string>
+	<string name="streetMapId">mapbox.streets</string>
+	<string name="outdoorsMapId">mapbox.outdoors</string>
+	<string name="woodcutMapId">examples.xqwfusor</string>
+	<string name="pencilMapId">mapbox.pencil</string>
+	<string name="spaceShipMapId">examples.3hqcl3di</string>
+
+    <!-- Access Token -->
+    <string name="testAccessToken">pk.eyJ1IjoiYmxlZWdlIiwiYSI6IkRGLTFPU00ifQ.qJpq3jytAL9A-z_tkNypqg</string>
+
+</resources>

@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\Alex\.gradle\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\pre-dexed\debug\library-2.4.0-ddfd072d2d956375c5f0b4209f10fe4586d2d98d.jar" />
+    </item>
+    <item
+        jar="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="6836d188602ec5382d1967c58b00960eb8ff8773">
+        <dex dex="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\pre-dexed\debug\classes-163efe26399184c3da081739bf68df21d286ba27.jar" />
+    </item>
+    <item
+        jar="C:\Users\Alex\.gradle\caches\modules-2\files-2.1\com.jakewharton\disklrucache\2.0.2\93b399470e72c0bc8cb52379943b63c9aa586cd8\disklrucache-2.0.2.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="93b399470e72c0bc8cb52379943b63c9aa586cd8">
+        <dex dex="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\pre-dexed\debug\disklrucache-2.0.2-0ed7184c3619e87499b00d2f753b0420a3267a23.jar" />
+    </item>
+    <item
+        jar="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\libs\internal_impl-22.2.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c471eaaba13ff64f6e0383d1c30a9cdc9a97efeb">
+        <dex dex="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\pre-dexed\debug\internal_impl-22.2.1-0a509cdc6c5d2833677a61ea71af9cd46a38e974.jar" />
+    </item>
+    <item
+        jar="C:\Users\Alex\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp\okhttp-urlconnection\2.4.0\a0c195f14cefc7597e0bebf22c3e7b43920dcf4\okhttp-urlconnection-2.4.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="0a0c195f14cefc7597e0bebf22c3e7b43920dcf4">
+        <dex dex="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\pre-dexed\debug\okhttp-urlconnection-2.4.0-1b12197e1003108283a6dfab1887fd0e9696125d.jar" />
+    </item>
+    <item
+        jar="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a78183f30e769a98ab4820794f597763088d3065">
+        <dex dex="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\pre-dexed\debug\classes-d73088603e0eff776c4daf972d22f2e3bf65fede.jar" />
+    </item>
+    <item
+        jar="C:\Users\Alex\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp\okhttp\2.4.0\40340c0748190fe897baf7bffbc1b282734294e5\okhttp-2.4.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="40340c0748190fe897baf7bffbc1b282734294e5">
+        <dex dex="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\pre-dexed\debug\okhttp-2.4.0-089d415d148ee631a11564945e52d93284e0c978.jar" />
+    </item>
+    <item
+        jar="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="06a42becc33232ec0ee125161da68c1829c9f8fd">
+        <dex dex="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\pre-dexed\debug\classes-87a563332a61fdd97d627ab8f18a139f4156f258.jar" />
+    </item>
+    <item
+        jar="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\exploded-aar\com.google.android.gms\play-services-appstate\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="68c140702c7242d914655bcb3164d9e8c45b84cb">
+        <dex dex="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\pre-dexed\debug\classes-6eec31458919f4b61ed190f84e2689cb9011e4e3.jar" />
+    </item>
+    <item
+        jar="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="69dd177337ead693c408c8dddc9546bb6f1244fa">
+        <dex dex="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\pre-dexed\debug\classes-02369d009b60a7adeb8231c4ef1dd230b88b0eb5.jar" />
+    </item>
+    <item
+        jar="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\22.0.0\jars\libs\internal_impl-22.0.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ba3df4eb0a630d7de294f0e48d3f9267d279b784">
+        <dex dex="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\pre-dexed\debug\internal_impl-22.0.0-7fb9f8a353ddd755c55983210a76bbbeaa6d0bdc.jar" />
+    </item>
+    <item
+        jar="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="f44d03c138cb6488fdbaa65e3a7e5878861a56d8">
+        <dex dex="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\pre-dexed\debug\classes-0f6433aaece80ea1e9f41e5e2473e80c0301c12a.jar" />
+    </item>
+    <item
+        jar="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="63ec6e9f4fe5482a7447d0f3091b8e543a02554c">
+        <dex dex="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\pre-dexed\debug\classes-c4df40b6596ad3d5519679028fbdea8b6f08eac1.jar" />
+    </item>
+    <item
+        jar="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="e7b35244f50663b3f8d150714bca9ecd7a290da1">
+        <dex dex="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\pre-dexed\debug\classes-90cd0ba1c659629d51e23c685ec311c7cf6b9104.jar" />
+    </item>
+    <item
+        jar="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\exploded-aar\com.android.support\cardview-v7\22.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="e1fa5e1123997a55e3ed65b44892993ff4b58cfe">
+        <dex dex="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\pre-dexed\debug\classes-618f6409f696a9055aae1285d93162c527ec2ab4.jar" />
+    </item>
+    <item
+        jar="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a172852a35ff919e85b9b7f14bbc15c5bee25520">
+        <dex dex="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\pre-dexed\debug\classes-e1fc593ee9f9f3d47d6912821d5bec7de819b665.jar" />
+    </item>
+    <item
+        jar="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="d405025c600055237c171a0bbabaa49d69696573">
+        <dex dex="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\pre-dexed\debug\classes-4b099a17d80939b0488c956c8dd5d0615b7a2d39.jar" />
+    </item>
+    <item
+        jar="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="8e3a972f28b8bae817e382257ba177a31bcadbbc">
+        <dex dex="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\pre-dexed\debug\classes-518187e46fe929ff3192cf7cc8904e9ff20c1872.jar" />
+    </item>
+    <item
+        jar="C:\Users\Alex\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.1\support-annotations-22.2.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
+        <dex dex="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\pre-dexed\debug\support-annotations-22.2.1-516323a7072462f5a4a5bd826fcb7b60cab8b13c.jar" />
+    </item>
+    <item
+        jar="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\22.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a1372c17fccacca753d3951d3ad820571cbce075">
+        <dex dex="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\pre-dexed\debug\classes-f9134c6b8c82e3b73aa216ce2aa74240b96c545c.jar" />
+    </item>
+    <item
+        jar="C:\Users\Alex\.gradle\caches\modules-2\files-2.1\com.vividsolutions\jts\1.13\3ccfb9b60f04d71add996a666ceb8902904fd805\jts-1.13.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="3ccfb9b60f04d71add996a666ceb8902904fd805">
+        <dex dex="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\pre-dexed\debug\jts-1.13-9ca86ff3a27c42553a78da964ca80cda62bb6b88.jar" />
+    </item>
+    <item
+        jar="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
+        <dex dex="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\pre-dexed\debug\classes-419f4f71247510ff39accf6094d1ea53980e3ba6.jar" />
+    </item>
+    <item
+        jar="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="f8efd0096475e0daf054267b61544e10dc776503">
+        <dex dex="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\pre-dexed\debug\classes-6fcdc77308ea6b2e13f80bbd8791cc31847f3a17.jar" />
+    </item>
+    <item
+        jar="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="8d736fefa22d896e84a268354b3ed48a42663150">
+        <dex dex="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\pre-dexed\debug\classes-569535fab12f7a9c62da1dbf0c161d221fc359f0.jar" />
+    </item>
+    <item
+        jar="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\exploded-aar\com.android.support\gridlayout-v7\22.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="4c72b7305d9c42d7729d66694dc984f69896a844">
+        <dex dex="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\pre-dexed\debug\classes-dfa8b9ad67dd5eef5e3b288194371b5a5f30d319.jar" />
+    </item>
+    <item
+        jar="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ba207be21987c11b37d9f8faa08ed6e722569f30">
+        <dex dex="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\pre-dexed\debug\classes-c8bc17d97526ce590c59c3aa5238d3ff835ee027.jar" />
+    </item>
+    <item
+        jar="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\22.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="3abb4b88f5a8a0584a9b01d3170d7165f12f8588">
+        <dex dex="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\pre-dexed\debug\classes-1263c2fcea4a0d5975d5d94de8c7cf56f87880d2.jar" />
+    </item>
+    <item
+        jar="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1e98ef3f124bb7a11f8575f9ff5dfea330b61b6f">
+        <dex dex="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\pre-dexed\debug\classes-3f66a2c70fcb5073aeaa505d954356aa78955547.jar" />
+    </item>
+    <item
+        jar="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="6440e5e5cfe368f9bff3c537fb8988048069cb33">
+        <dex dex="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\pre-dexed\debug\classes-519ab03a80c9ed5b0c7e57ba86089313b15019c7.jar" />
+    </item>
+    <item
+        jar="C:\Users\Alex\.gradle\caches\modules-2\files-2.1\com.crashlytics.android\crashlytics\1.1.13\e821eafa1bf489a26bdb71f95078c26785b37a1\crashlytics-1.1.13.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="0e821eafa1bf489a26bdb71f95078c26785b37a1">
+        <dex dex="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\pre-dexed\debug\crashlytics-1.1.13-61aaf6c023d8085adafe889f02876f1e184aaf0d.jar" />
+    </item>
+    <item
+        jar="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="29ebc7e04d877062317c8cc0e68b20f0c1fcda66">
+        <dex dex="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\pre-dexed\debug\classes-4c84d3b88fc916ae7d9868e577b79530969117bf.jar" />
+    </item>
+    <item
+        jar="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1a6411087ab88ce5542f593e63a2752b6b0d6f1a">
+        <dex dex="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\pre-dexed\debug\classes-f145de41ca16173caf70bbaa9a25f1c6945b9d6d.jar" />
+    </item>
+    <item
+        jar="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="f02127a85abd52a2cd526d4c2409f21969f80ee8">
+        <dex dex="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\pre-dexed\debug\classes-9a3e41fd2b5683ca55c9860c7b2a4a613ceedd1f.jar" />
+    </item>
+    <item
+        jar="C:\Users\Alex\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.4.0\5b72bf48563ea8410e650de14aa33ff69a3e8c35\okio-1.4.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="5b72bf48563ea8410e650de14aa33ff69a3e8c35">
+        <dex dex="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\pre-dexed\debug\okio-1.4.0-37ffc786bef231d26aaa779c8ff845f2f75fcd99.jar" />
+    </item>
+    <item
+        jar="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\exploded-aar\com.mapbox.mapboxsdk\mapbox-android-sdk\0.7.4\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="4bd64ebaab7edb0bccbb031dbdb7b1a7239d58f7">
+        <dex dex="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\pre-dexed\debug\classes-9591a9b0b6d610a62dcaf253dbb5df087e3a7a43.jar" />
+    </item>
+    <item
+        jar="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="272bc5d7063f24bc3a33ea1d318cde8f31f5ec4c">
+        <dex dex="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\pre-dexed\debug\classes-890125c45c38a8f16a5aae737f30be9d251bc0d5.jar" />
+    </item>
+    <item
+        jar="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="02bac2dc792d78241077861566f2c82da955e7fa">
+        <dex dex="C:\Users\Alex\Desktop\mapbox-android-demo-master\MapBoxAndroidDemo\build\intermediates\pre-dexed\debug\classes-336e9c8b852d7a682b5eb6fde190c5c000349ac3.jar" />
+    </item>
+
+</items>
