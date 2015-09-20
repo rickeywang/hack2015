@@ -39,7 +39,7 @@ class TripHandler(webapp2.RequestHandler):
             entries = []
             content = json.loads(fb_response.content)
             for entry in content:
-                entries.append(content[entry])
+                entries.append({ entry : content[entry]})
 
             response['entries'] = entries
 
@@ -66,12 +66,12 @@ class TripHandler(webapp2.RequestHandler):
             self.response.write({'error' : 'Missing email that the trip will be associated with'})
             return
         elif request.get('file_ids') is None:
-            self.response.status_int = 400l
+            self.response.status_int = 400
             self.response.headers['Access-Control-Allow-Origin'] = "http://www.myvoyagr.co"
             self.response.write({'error' : 'Missing file_ids'})
             return
         elif request.get('access_token') is None:
-            self.response.status_int = 400l
+            self.response.status_int = 400
             self.response.headers['Access-Control-Allow-Origin'] = "http://www.myvoyagr.co"
             self.response.write({'error' : 'Missing access token'})
             return
@@ -94,16 +94,17 @@ class TripHandler(webapp2.RequestHandler):
 
             # Go through each file id and get the file information
             entities = []
+            access_token = request.get('access_token')
+
             for t_id in request.get('file_ids'):
                 result = urlfetch.fetch(url="https://www.googleapis.com/drive/v2/files/{}".format(t_id),
                     method=urlfetch.GET,
-                    headers={'Authorization' : 'Bearer {}'.format(request.get('access_token'))}
+                    headers={'Authorization' : 'Bearer {}'.format(access_token)}
                 )
                 data = to_json(result.content)
 
                 if result.status_code == 200:
                     payload = {
-                        "trip_id" : trip.key.urlsafe(),
                         "lat": data.get('imageMediaMetadata').get('location').get('latitude') if data.get('imageMediaMetadata').get('location') else 0.0,
                         "long": data.get('imageMediaMetadata').get('location').get('longitude') if data.get('imageMediaMetadata').get('location') else 0.0,
                         "thumbnail_link": data.get('thumbnailLink'),
@@ -124,7 +125,7 @@ class TripHandler(webapp2.RequestHandler):
                         logging.error("Error saving file {} to FB".format(t_id))
                         logging.error(fb_response.content)
                     else:
-                        entities.append(payload)
+                        entities.append({ json.loads(fb_response.content).get('name') : payload })
                 else:
                     logging.error("Unable to retrieve file {}".format(t_id))
                     logging.error(result.content)
