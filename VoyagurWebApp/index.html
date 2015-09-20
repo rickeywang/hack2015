@@ -45,6 +45,17 @@
 	<!--fonts-->
 	<link href='http://fonts.googleapis.com/css?family=Raleway:400,200,700' rel='stylesheet' type='text/css'/>
 
+	
+	<!-- RICKEY -->
+	<script src="typeahead.bundle.js"></script>
+	<script src="az_search.js"></script>
+	<style>
+		.list-group-item:hover{
+			background-color: #888888;
+		}
+	</style>
+
+
 	<!--main js and css-->
 	<script src="main.js"></script>
 	<link type="text/css" rel="stylesheet" href="main.css"/>
@@ -67,6 +78,9 @@
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav navbar-right">
+	      	<li><p><div id="search_zone"><input class="typeahead" placeholder="Search" type="text" id="search_box" onkeypress="search_enter_handle(event)"/></div></p>
+
+			<p><div id="search_result"></div></p></li>
 	      	<li>
 	      	<p id="tripLabel">Trip Name: </p><input type="text" name="newTripName" id="newTripName" class="postInput" />
 			<button onClick="newTrip(newTripName.value)" id="btnCreateTrip">CREATE</button>

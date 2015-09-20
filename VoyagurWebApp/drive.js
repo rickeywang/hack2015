@@ -12,6 +12,8 @@ var oauthToken;
 
 var tripName;
 
+var tripID2;
+
 function uploadPhotos(){
   if(document.getElementById("tripSelect").options.length == 0) {
     alert("Please select a trip, or create a new trip.");
@@ -96,6 +98,7 @@ function pickerCallback(data) {
       console.log(responseJson);
       var responseObject = jQuery.parseJSON(responseJson);
       console.log(responseObject);
+      tripID2 = responseObject["trip_id"];
       addPhotos(responseObject);
     };
     xhr.send(pickerJson);

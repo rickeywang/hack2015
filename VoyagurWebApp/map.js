@@ -12,7 +12,7 @@ var existingContainer = document.getElementById("existing-posts");
 var allTrips = [];
 var tripIDs = [];
 
-var markerObjs = {};
+var markerObjs = [];
 
 updateTripSelect();
 
@@ -26,8 +26,6 @@ function newTrip(tripName){
   allTrips.push(tripLayer);
   tripIDs.push(tripName);
   updateTripSelect();
-
-  markerObjs[tripName] = [];
 }
 
 function updateTripSelect(){
@@ -86,13 +84,11 @@ function addMarker(x, y, title, description, images, tripID){
   allTrips[tripID].addLayer(marker);
   marker.openPopup();
 
-  markerObjs[tripIDs[tripID]].push({});
-  markerObjs[tripIDs[tripID]][markerObjs[tripIDs[tripID]].length - 1]["latlng"] = [x, y];
-  markerObjs[tripIDs[tripID]][markerObjs[tripIDs[tripID]].length - 1]["title"] = title;
-  markerObjs[tripIDs[tripID]][markerObjs[tripIDs[tripID]].length - 1]["description"] = description;
-  markerObjs[tripIDs[tripID]][markerObjs[tripIDs[tripID]].length - 1]["images"] = images;
+  markerObjs[0] = [x, y];
+  markerObjs[1] = tripID2;
 
   console.log(markerObjs);
+  var markerJson = JSON.stringify(markerObjs);
 
   var line = [];
 
@@ -117,9 +113,7 @@ function addMarker(x, y, title, description, images, tripID){
   xhr.onload = function() {
     console.log('Response: ' + xhr.responseText);
   };
-  xhr.send({
-    "data" : ""
-  });
+  xhr.send(markerJson);
 }
 
 //add post to sidebar
